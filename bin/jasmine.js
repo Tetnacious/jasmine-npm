@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --experimental-modules
 
 var path = require('path'),
     Command = require('../lib/command.js'),

@@ -51,8 +51,8 @@ describe('command', function() {
   });
 
   describe('passing in environment variables', function() {
-    beforeEach(function () {
-      this.command.run(this.fakeJasmine, ['node', 'bin/jasmine.js', 'TESTKEY=TESTVALUE']);
+    beforeEach(async function () {
+      await this.command.run(this.fakeJasmine, ['node', 'bin/jasmine.js', 'TESTKEY=TESTVALUE']);
     });
 
     afterEach(function() {
@@ -167,8 +167,8 @@ describe('command', function() {
       expect(this.fakeJasmine.loadConfigFile).toHaveBeenCalledWith(undefined);
     });
 
-    it('should load a custom config file specified by env variable', function() {
-      this.command.run(this.fakeJasmine, ['node', 'bin/jasmine.js', 'JASMINE_CONFIG_PATH=somewhere.json']);
+    it('should load a custom config file specified by env variable', async function() {
+      await this.command.run(this.fakeJasmine, ['node', 'bin/jasmine.js', 'JASMINE_CONFIG_PATH=somewhere.json']);
       expect(this.fakeJasmine.loadConfigFile).toHaveBeenCalledWith('somewhere.json');
     });
 
